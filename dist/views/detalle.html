@@ -1,0 +1,67 @@
+
+<section ng-controller="detalleController" class="detalle-venta">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="encabezado-tabla">
+        <div class="cabecera-venta">
+          <div class="logo"><img src="images/logo.png" class="img-responsive"/><span>Ventas</span></div>
+          <div class="cabecera-detalle-venta"><i class="glyphicon glyphicon-menu-right"></i><span ng-bind=" datos.net_amount | currency: 'S/. ' "></span>
+            <button class="btn btn-default">VENTA</button>
+            <div class="grupo-btn-cabecera"><span>Marcar como:</span>
+              <div class="btn-cabecera">
+                <button class="btn btn-default glyphicon glyphicon-ban-circle"></button>
+                <button class="btn btn-default glyphicon glyphicon-ok"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="botones-tabla">
+          <button ng-click="regresar()" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-arrow-left"></i><span>Devolver</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 container-tarjeta"><span ng-bind=" datos.token.brand_name | uppercase " class="tarjeta"></span>
+            <div class="descripcion-tarjeta"><span ng-bind=" datos.token.card_number "></span><span ng-bind=" datos.token.cardholder.first_name + ' ' + datos.token.cardholder.last_name "></span><span ng-bind=" datos.token.cardholder.email "></span></div>
+          </div>
+          <div class="col-md-6 container-btn-estado">
+            <button class="btn btn-default btn-estado"><span class="circulo"></span><span ng-bind=" 'Estado: ' + datos.state "></span></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 container-mensaje"><span ng-bind=" datos.merchant_message "></span></div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 container-transaccion">
+            <section class="col-md-12">
+              <h4 class="row">DATOS DE LA TRANSACCIÓN</h4>
+              <div class="row">
+                <div class="col-md-5 datos-transaccion">
+                  <div class="campo-transaccion"><span>Número de pedido:</span><span ng-bind=" 'pedido' + datos.id "></span></div>
+                  <div class="campo-transaccion"><span>Token:</span><span>49WESDCBEGWEFWEFWEWFS</span></div>
+                </div>
+                <div class="col-md-5 col-md-offset-2 datos-transaccion">
+                  <div class="campo-transaccion"><span>Descripción:</span><span ng-bind=" datos.product_description "></span></div>
+                  <div class="campo-transaccion"><span>Fecha y Hora:</span><span>29/12/2014 08:12:06</span></div>
+                </div>
+              </div>
+            </section>
+            <section class="col-md-12">
+              <h4 class="row">DATOS DEL CLIENTE</h4>
+              <div class="row">
+                <div class="col-md-5 datos-transaccion">
+                  <div class="campo-transaccion"><span>Nombre y Apellido:</span><span ng-bind=" datos.client.first_name + ' ' + datos.client.last_name "></span></div>
+                </div>
+                <div class="col-md-5 col-md-offset-2 datos-transaccion">
+                  <div class="campo-transaccion"><span>País:</span><span ng-bind=" datos.client.country_code "></span></div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
